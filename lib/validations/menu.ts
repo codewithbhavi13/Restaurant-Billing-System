@@ -14,3 +14,11 @@ export const createMenuItemSchema = z.object({
     message: "Please provide a valid food image URL",
   }),
 });
+
+
+export const updateMenuItemSchema = createMenuItemSchema
+  .partial()
+  .refine(
+    (data) => Object.keys(data).length > 0,
+    { message: "At least one field is required to update" }
+  );

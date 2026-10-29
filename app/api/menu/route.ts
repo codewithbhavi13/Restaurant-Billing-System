@@ -43,11 +43,6 @@ export async function POST(request: Request) {
   }
 
   const validation = createMenuItemSchema.safeParse(body);
-  console.log("Request body:", body);
-
-if (validation.success) {
-  console.log("Validated data:", validation.data);
-}
   if (!validation.success) {
     return NextResponse.json(
       {
